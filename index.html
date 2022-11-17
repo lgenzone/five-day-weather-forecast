@@ -11,45 +11,122 @@
 
   <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 class="d-flex justify-content-center align-items-center">Weather Dashboard</h1>
     </header>
 
     <main>
         <!-- search container-->
-        <div>
-            <p>City Search:</p>
-            <form>
-                <input type="search" placeholder="enter a city">
-                <button type="submit"></button>
-            </form>
+        <section class="container py-5 h-100">
 
-            <ul>
-                <li>list search history here</li>
-
-            </ul>
-         </div>
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-md-8 col-lg-6 col-xl-4">
+        
+                <h3 class="fw-normal ">Search a city to see weather conditions:</h3>
+        
+                <div class="input-group rounded mb-3">
+                  <input type="search" class="form-control rounded" placeholder="City" aria-label="Search"
+                    aria-describedby="search-addon" />
+                  <a href="#!" type="button">
+                    <span class="input-group-text border-0 fw-bold" id="search-addon">
+                      Search!
+                    </span>
+                  </a>
+                </div>
+            </div>
+        </section>
 
          <!-- weather results sections -->
-         <div>
-            <div>
-                <div>
-                    <h3>city title</h3>
+            <section class="vh-80" style="background-color: #f5f6f7;">
+                <div class="container py-5 h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-md-10 col-lg-8 col-xl-6">
+              
+                      <div class="card bg-dark text-white" style="border-radius: 40px;">
+                        <div class="bg-image" style="border-radius: 35px;">
+                          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/draw1.webp"
+                            class="card-img" alt="weather" />
+                          <div class="mask" style="background-color: rgba(190, 216, 232, .5);"></div>
+                        </div>
+                        <div class="card-img-overlay text-dark p-5">
+                          <h4 class="mb-0">Juneau, Alaska, US</h4>
+                          <p>Temperature:</p>
+                          <p>Wind speed:</p>
+                          <p>Humidity:</p>
+                          <h5>Snowy</h5>
+                        </div>
+                      </div>
+              
+                    </div>
+                  </div>
                 </div>
-                <p>Temperature:</p>
-                <p>Wind speed:</p>
-                <p>Humidity:</p>
-            </div>
-         </div>
-
+              </section>
+    
          <!-- five day forecast-->
-         <div>
+         <!--
+         <div class="container">
             <h3>Five Day Forecast</h3>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
+            <div class="row row-cols-4">
+              <div class="col align-self-start">Column</div>
+              <div class="col">Column</div>
+              <div class="col">Column</div>
+              <div class="col">Column</div>
+              <div class="col align-self-end">Column</div>
+            </div>
+          </div>
+        -->
+        <div class="row row-cols-5">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Date</h5>
+                <i class="fas fa-cloud pe-2"></i>
+                <p class="card-text">Temp:</p>
+                <p class="card-text">Wind Speed:</p>
+                <p class="card-text">Humidity:</p>
+                </div>
+            </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <i class="fas fa-cloud pe-2"></i>
+              <p class="card-text">Temp:</p>
+              <p class="card-text">Wind Speed:</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <i class="fas fa-cloud pe-2"></i>
+              <p class="card-text">Temp:</p>
+              <p class="card-text">Wind Speed:</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <i class="fas fa-cloud pe-2"></i>
+              <p class="card-text">Temp:</p>
+              <p class="card-text">Wind Speed:</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Date</h5>
+              <i class="fas fa-cloud pe-2"></i>
+              <p class="card-text">Temp:</p>
+              <p class="card-text">Wind Speed:</p>
+              <p class="card-text">Humidity:</p>
+            </div>
+          </div>
+          
+        </div>
+          
 
     </main>
   </body>
