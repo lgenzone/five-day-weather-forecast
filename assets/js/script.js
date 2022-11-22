@@ -1,49 +1,68 @@
 
 // Your API key is d165ca26185edc2c0c03ddfd0e1f6ef7
 // api.openweathermap.org/data/2.5/weather?q=
+// https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&units=imperial&appid=${apikey}
 
 
 // request log and lat from openweathermap.org
-function getApi(city) {
 
-        var apiKey = "d165ca26185edc2c0c03ddfd0e1f6ef7";
-        var city; 
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
-
-    //var requestURL = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=d165ca26185edc2c0c03ddfd0e1f6ef7&units=imperial";//
-
-    fetch(queryURL)
-        .then(function(response) { 
-            // checks if request went through and alerts user if it fails
-            if (response.ok) {
-                response.json().then(function(data) {
-                    currentWeather(data);
-                });
-            } else {
-                window.alert("Request Failed")
-            }
+var cityName = "";
 
 
-        })
-}
+      var apiKey = "d165ca26185edc2c0c03ddfd0e1f6ef7"; 
+     //   var weatherURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=d165ca26185edc2c0c03ddfd0e1f6ef7";
 
+     //   fetch(weatherURL)
+      //      .then((data) => {console.log('response', data.json())  })
 
-// city search function 
-var currentWeather = function(event){
-    event.preventDefault(); //blocks the page from refreshing
-    
-    var cityName = document.getElementById("cityname");
+        var getCity = async (searchInput) => {
+            console.log('button was clicked')
+            var weatherURL = "http://api.openweathermap.org/geo/1.0/direct";
+            var queryURL = `?q=${searchInput}&limit=5&appid=${apiKey}`;
 
-// get city weather if user types in a city name
-    if (cityName) {
-        getApi(cityName);
+            var response = await fetch(weatherURL + queryURL);
 
-// if a valid city is not entered, return response to user
-    } else {
-        window.alert("Please enter a city");
+            var data = await response.json();
+            //console.log(data);
+            //return data; 
+            console.log(data);
+            
+        }
+
+    function getLocation() {
+        var searchInput = $('#cityname').val().trim();
+        console.log(searchInput);
+        getCity(searchInput);
     }
-};
 
-// event listener for search button 
-var searchButton = document.getElementById('searchBtn');
-searchButton.addEventListener('click', getApi);
+    function getWeather() {}
+
+    
+
+
+    
+    // event listener 
+
+     //  var searchButton = document.getElementById('submitBtn');
+     //  console.log(searchButton)
+     //  searchButton.click(function(){
+     //   console.log('button was clicked')
+    //    getCity();       });
+
+    var searchButton = document.getElementById('submitBtn')
+    searchButton.addEventListener('click', getLocation);
+    
+
+       
+
+       
+
+        
+
+
+
+        
+
+         
+
+
