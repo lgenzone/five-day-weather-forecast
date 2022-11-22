@@ -26,7 +26,15 @@ var cityName = "";
             //console.log(data);
             //return data; 
             console.log(data);
-            
+
+            var lat = data[0].lat;
+            var lon = data[0].lon;
+
+            cityName = data[0].name;
+            var latStg = lat.toString();
+            var lonStg = lon.toString();
+
+            getWeather(latStg,lonStg);
         }
 
     function getLocation() {
@@ -35,8 +43,20 @@ var cityName = "";
         getCity(searchInput);
     }
 
-    function getWeather() {}
-
+    function getWeather(latStg, lonStg) {
+        var weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latStg + "&lon=" + lonStg + "&appid=" + apiKey;
+        fetch(weatherURL)
+        .then(function(response){
+            if (response.ok) {
+                response.json().then(function(data){
+                    console.log(data)
+                    var todayTemp = $("#temp")
+                    todayTemp.text(data.main.temp)
+                })
+            }
+        })
+    }
+//data.wind.speed
     
 
 
