@@ -18,13 +18,12 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link src="assets/css/style.css">
-  </head>
+    <link rel="stylesheet" href="./assets/css/style.css"/>
 
 
   <body>
 
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="text-center title">Weather Dashboard</h1>
         <form class="city-search">
           <input type="text" class="form-control rounded" id="cityname" placeholder="City"/></form>
@@ -41,7 +40,7 @@
           <div class="card-body">
             
             <div class="row inside-card">
-              <div class="col text-center temp">
+              <div class="text-center temp">
                 <span>degree(F)</span>
               </div>
 
@@ -74,6 +73,7 @@
 
           </div>
         </div>
+    </div>
 
     
 
@@ -81,51 +81,11 @@
 
 
 
-    <header>
-        <h1 class="d-flex justify-content-center align-items-center">Weather Dashboard</h1>
-    </header>
-
-    <main>
-        <!-- search container-->
-        <section class="container py-5 h-100">
-
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-md-8 col-lg-6 col-xl-4">
-        
-                <h3 class="fw-normal ">Search a city to see weather conditions:</h3>
-        
-                <div class="input-group rounded mb-3" id="searchBtn">
-                  <input type="text" class="form-control rounded" id="cityname" placeholder="City" aria-label="Search"
-                    aria-describedby="search-addon"/>
-                  <a href="#!" type="button">
-                    <span class="input-group-text border-0 fw-bold" id="search-addon">
-                      Search!
-                    </span>
-                  </a>
-                </div>
-            </div>
-        </section>
-
-         <!-- weather results section --> 
-        <div class="col">
-
-              <div class="current-weather card mb-5">
-                  <div class="card-body">
-                    <div class="d-flex flex row">
-                      <h4 class="date" id="date">"current date"</h4>
-                      <h5 class="card-title align-self-center">"city title"</h5>
-                    </div>
-                    <i class="current-weather-items fas fa-cloud pe-2"></i>
-                    <p class="current-weather-items card-text">Temperature:</p>
-                    <p class="current-weather-items card-text">Wind Speed:</p>
-                    <p class="current-weather-items card-text">Humidity:</p>
-                  </div>
-              </div>
-
+   
     
          <!-- five day forecast-->
          
-        <div class="five-day-forecast row row-cols-5">
+        <div class="five-day-forecast mt-10 row row-col-5">
 
             <div class="day1 card" style="width: 18rem;">
                 <div class="card-body">
@@ -177,7 +137,7 @@
             </div>
           </div>
         </div>
-      </div>
+      
     </main>
 
     <!--javascript-->
