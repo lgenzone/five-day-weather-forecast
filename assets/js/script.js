@@ -6,9 +6,13 @@
 // request log and lat from openweathermap.org
 function getApi(city) {
 
-    var requestURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "d165ca26185edc2c0c03ddfd0e1f6ef7";
+        var apiKey = "d165ca26185edc2c0c03ddfd0e1f6ef7";
+        var city; 
+        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
-    fetch(requestURL)
+    //var requestURL = "https://api.openweathermap.org/data/2.5/weather?q" + city + "&appid=d165ca26185edc2c0c03ddfd0e1f6ef7&units=imperial";//
+
+    fetch(queryURL)
         .then(function(response) { 
             // checks if request went through and alerts user if it fails
             if (response.ok) {
