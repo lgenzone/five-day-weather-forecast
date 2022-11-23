@@ -23,14 +23,16 @@ var cityName = "";
             var response = await fetch(weatherURL + queryURL);
 
             var data = await response.json();
-            //console.log(data);
+            
             //return data; 
             console.log(data);
 
+            //set lat and lon variables
             var lat = data[0].lat;
             var lon = data[0].lon;
 
             cityName = data[0].name;
+            //convert lat and lon values to a string
             var latStg = lat.toString();
             var lonStg = lon.toString();
 
@@ -41,6 +43,7 @@ var cityName = "";
         var searchInput = $('#cityname').val().trim();
         console.log(searchInput);
         getCity(searchInput);
+
     }
 
     function getWeather(latStg, lonStg) {
@@ -50,13 +53,25 @@ var cityName = "";
             if (response.ok) {
                 response.json().then(function(data){
                     console.log(data)
+                     // displays current city name
+                    var currentCity = $("#current-city")
+                    currentCity.text(data.name)
+                    // displays current temperature
                     var todayTemp = $("#temp")
                     todayTemp.text(data.main.temp)
-                })
+                    // displays current wind speed
+                    var todayWind = $("#wind")
+                    todayWind.text(data.wind.speed)
+                    // displays current humidity
+                    var todayHumid = $("#humid")
+                    todayHumid.text(data.main.humidity)
+                 })
+            } else {
+                window.alert('response failed')
             }
         })
     }
-//data.wind.speed
+
     
 
 
