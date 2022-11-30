@@ -4,8 +4,9 @@
 // https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&units=imperial&appid=${apikey}
 
 
-// request log and lat from openweathermap.org
 
+
+// request log and lat from openweathermap.org
 var cityName = "";
 
 
@@ -65,6 +66,10 @@ var cityName = "";
                     // displays current humidity
                     var todayHumid = $("#humid")
                     todayHumid.text(data.main.humidity)
+                    //display current date
+                    var currentDate = dayjs();
+                    $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
+                
                  })
             } else {
                 window.alert('response failed')
@@ -72,18 +77,11 @@ var cityName = "";
         })
     }
 
-    
+
 
 
     
     // event listener 
-
-     //  var searchButton = document.getElementById('submitBtn');
-     //  console.log(searchButton)
-     //  searchButton.click(function(){
-     //   console.log('button was clicked')
-    //    getCity();       });
-
     var searchButton = document.getElementById('submitBtn')
     searchButton.addEventListener('click', getLocation);
     

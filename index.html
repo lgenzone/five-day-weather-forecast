@@ -23,41 +23,24 @@
 
   <body>
 
-    <div class="container mb-5">
-
-      <!-- search section; add history-->
-      <!--
-      <h1 class="text-center title">Weather Dashboard</h1>
-      <div class="input-group d-flex justify-content-center align-items-center">
-        <div class="form-outline city-search">
-          <input type="search" id="cityname" class="form-control" placeholder="City"/>
-          <label class="form-label" for="form1">Search</label>
-        </div>
-        <button type="submit" class="" id="submitBtn">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-       -->
-      
-      
+    <div class="container">
         <h1 class="text-center title">Weather Dashboard</h1>
         <div class="city-search">
           <input type="search" class="" id="cityname" placeholder="City"/>
           <button class="button" type="submit" id="submitBtn">Search</button>
         </div>
-    
-        
+  
         <div class="card card-bottom">
           <div class="card-top text-center">
             <div class="cityname">
-              <p id = "current-city">"city name"</p>
-              <span></span>
+              <h3 id = "current-city"></h3>
+              <h4 id="date"></h4>
             </div>
+            
             <img src="" alt=""/> <!-- TO DO: add icon images-->
           </div>
 
           <div class="card-body">
-            
             <div class="row inside-card">
               <div class="text-center temp">
                 <span></span>
@@ -66,87 +49,33 @@
               <div class="col temp-para">
                 <!-- TO DO: convert temp to degrees-->
                 <p>Temperature: <span class="current-weather-items card-text" id="temp"></span></p>
-
                 <p>Wind Speed: <span class="current-weather-items card-text" id="wind"></span></p>
-
                 <p>Humidity: <span class="current-weather-items card-text" id="humid"></span></p>
-      
               </div>
-
             </div>
-              
               <div class="weather-icon card">
                 <img src="" alt=""/> <!-- TO DO: add icon images-->
               </div>
-
-              
-
           </div>
+
         </div>
     </div>
+
+  
+
 
   
     
          <!-- five day forecast-->
          
-        <div class="five-day-forecast mt-10 row row-col d-flex justify-content-center align-items-center">
-
-            <div class="day1 card" style="width: 18rem;">
-                <div class="card-body">
-                <h5 class="card-title">Date</h5>
-                <i class="weather-icon"></i>
-                <p class="card-text">Temp:</p>
-                <p class="card-text">Wind Speed:</p>
-                <p class="card-text">Humidity:</p>
-                </div>
-            </div>
-
-          <div class="day2 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <i class="weather-icon"></i>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind Speed:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-          </div>
-
-          <div class="day3 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <i class="weather-icon"></i>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind Speed:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-          </div>
-
-          <div class="day4 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <i class="weather-icon"></i>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind Speed:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-          </div>
-
-          <div class="day5 card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">Date</h5>
-              <i class="weather-icon"></i>
-              <p class="card-text">Temp:</p>
-              <p class="card-text">Wind Speed:</p>
-              <p class="card-text">Humidity:</p>
-            </div>
-          </div>
-        </div>
+        
       
     </main>
 
     <!--javascript-->
     <script src="assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   </body>
 </html>
