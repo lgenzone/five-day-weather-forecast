@@ -8,6 +8,8 @@
 
 // request log and lat from openweathermap.org
 var cityName = "";
+  // search history 
+  // var searchStorage = [];
 
 
       var apiKey = "d165ca26185edc2c0c03ddfd0e1f6ef7"; 
@@ -40,12 +42,17 @@ var cityName = "";
             getWeather(latStg,lonStg);
         }
 
+    
+
     function getLocation() {
         var searchInput = $('#cityname').val().trim();
         console.log(searchInput);
         getCity(searchInput);
 
     }
+    
+
+
 
     function getWeather(latStg, lonStg) {
         var weatherURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latStg + "&lon=" + lonStg + "&appid=" + apiKey;
@@ -76,15 +83,54 @@ var cityName = "";
             }
         })
     }
-
-
-
-
     
     // event listener 
     var searchButton = document.getElementById('submitBtn')
     searchButton.addEventListener('click', getLocation);
     
+    
+// search history 
+// not working
+function searchHistory () {
+    var recentSearch = [];
+    recentSearch.push($('.input').val());
+    console.log(searchHistory)
+
+    $.each(recentSearch, function(index, value){
+        const li = document.createElement('li');
+        li.innerHTML = value; 
+        document.getElementById("history").appendChild(li);
+    })
+}
+
+function getForecast(latStg, lonStg) {
+
+}
+
+
+    
+
+   
+
+    
+   // localStorage.setItem('cities', input.value); 
+    
+
+   // localStorage.getItem('cities', input.value); 
+
+
+
+    
+
+
+
+
+
+ 
+
+
+
+
 
        
 
