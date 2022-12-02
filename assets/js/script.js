@@ -76,6 +76,12 @@ var cityName = "";
                     //display current date
                     var currentDate = dayjs();
                     $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
+                    // display icon
+                    var icon = data.weather[0].icon;
+                    var iconUrl = `https://openweathermap.org/img/w/${icon}.png`
+                    $('#icon').attr('src', iconUrl);
+                    
+                    
                 
                  })
             } else {
@@ -103,9 +109,9 @@ function searchHistory () {
     })
 }
 
-function getForecast(latStg, lonStg) {
 
-}
+
+ 
 
 
     
