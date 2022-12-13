@@ -23,7 +23,7 @@
 
   <body>
     <!-- search / history section-->
-    <div class="container">
+    <div class="container" id="search-container">
         <h1 class="text-center title">Weather Dashboard</h1>
         <div class="city-search">
           <input type="search" class="input" id="cityname" placeholder="City"/>
@@ -46,7 +46,7 @@
                 <span></span>
               </div>
 
-              <div class="col temp-para">
+              <div class="col temp-para" id="current-weather">
                 <!-- TO DO: convert temp to degrees-->
                 <p>Temperature: <span class="current-weather-items card-text" id="temp"></span></p>
                 <p>Wind Speed: <span class="current-weather-items card-text" id="wind"></span></p>
@@ -61,7 +61,7 @@
 
           <!-- search history -->
           <div id="history">
-            <h2>history</h2>
+            
             <!--list recently search cities-->
 
           </div>
