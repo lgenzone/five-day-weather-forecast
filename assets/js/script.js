@@ -3,8 +3,11 @@
 // api.openweathermap.org/data/2.5/weather?q=
 // https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&units=imperial&appid=${apikey}
 
-/*var searchSection = document.querySelector('#search-container');
+
+
 var recentSearches = [];
+
+/*
 
 function renderHistory() {
     //var searchInput = $('#cityname').val().trim();
@@ -70,7 +73,26 @@ function init() {
         console.log(searchInput);
         getCity(searchInput);
 
-    }
+            var historyButton = document.createElement('button');
+            historyButton.innerHTML = searchInput;
+            var searchSection = document.getElementById('cityname');
+            searchSection.appendChild(historyButton);
+            recentSearches.push(searchInput);
+            //console.log(recentSearches);
+            var prevCities = JSON.parse(localStorage.getItem('city'));
+            
+            console.log(prevCities);
+
+            // send to local storage
+            localStorage.setItem('city', JSON.stringify(searchInput));
+
+
+        };
+
+
+
+
+    
     
 
 
@@ -121,6 +143,7 @@ function init() {
     // event listener 
     var searchButton = document.getElementById('submitBtn')
     searchButton.addEventListener('click', getLocation);
+
     
     // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
