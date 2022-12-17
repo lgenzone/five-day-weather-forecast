@@ -127,11 +127,88 @@ function init() {
                     var iconUrl = `https://openweathermap.org/img/w/${icon}.png`
                     $('#icon').attr('src', iconUrl);
 
-                    var forecast = $('.weather-forecast');
-                    var day1temp = $('<li>')
-                    day1temp.text(data.list[1].main.temp);
-                    forecast.append(day1temp);
+                    for (let i=0; i<5; i++) {
+
+                    var forecast = $('#weather-forecast');
+
+                    // target data 
+                    var date = data.list[i].dt_txt;
+                    var temp = data.list[i].main.temp;
+                    var wind = data.list[i].wind.speed;
+                    var humid = data.list[i].main.humidity;
                     
+
+                    // create card container
+                    var card = document.createElement('div');
+                    card.classList.add('card', 'text-center',);
+                    forecast.append(card);
+
+                    // create card body 
+                    var cardBody = document.createElement('div');
+                    cardBody.classList.add('card-body');
+                    card.append(cardBody); 
+
+                    // create forecast date
+                    var forecastDate = document.createElement('h4');
+                    forecastDate.classList.add('card-title');
+                    forecastDate.innerHTML = date;
+                    cardBody.append(forecastDate);
+
+                    // create forecast temp
+                    var forecastTemp = document.createElement('h5');
+                    forecastTemp.classList.add('card-title');
+                    forecastTemp.innerHTML = 'Temperature: ' + temp;
+                    cardBody.append(forecastTemp);
+                    
+
+                    // create unorder list
+                    var ul = document.createElement('ul');
+                    ul.classList.add('list-group', 'list-group-flush');
+
+                    // create wind speed
+                    var forecastWS = document.createElement('li');
+                    forecastWS.classList.add('list-group-item');
+                    forecastWS.innerHTML = 'Wind Speed: ' + wind + ' mph';
+                    cardBody.append(forecastWS);
+
+                    // create humidity
+                    var forecastHumid = document.createElement('li');
+                    forecastHumid.classList.add('list-group-item');
+                    forecastHumid.innerHTML = 'Humidity: ' + humid + '%';
+                    cardBody.append(forecastHumid);
+
+
+
+
+                    // append 
+                    //forecast.append(forecastDate);
+                    //forecast.append(forecastTemp);
+
+
+                    /*
+
+                    var humid = data.list[i].main.humidity;
+                    var wind = data.list[i].wind.speed;
+
+                    
+
+                    
+                    
+                    date.text(data.list[i].dt_txt);
+
+                    
+                    temp.text(data.list[i].main.temp);
+                    forecast.append(temp);
+
+                
+                    humid.text(data.list[i].main.humidity);
+                    forecast.append(humid);
+
+                    wind.text(data.list[i].wind.speed);
+                    forecast.append(wind); */
+
+                
+                    }
                     
                 
                  })
