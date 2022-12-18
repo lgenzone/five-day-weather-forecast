@@ -128,6 +128,8 @@ function init() {
                     var iconUrl = `https://openweathermap.org/img/w/${icon}.png`
                     $('#icon').attr('src', iconUrl);
 
+                   
+
                     for (let i=0; i<5; i++) {
 
                     var forecast = $('#weather-forecast');
@@ -141,7 +143,8 @@ function init() {
 
                     // create card container
                     var card = document.createElement('div');
-                    card.classList.add('card', 'text-center',);
+                    card.classList.add('card', 'text-center', 'mx-auto', 'my-2', 'px-5');
+                    card.style.width = '17rem';
                     forecast.append(card);
 
                     // create card body 
@@ -155,7 +158,8 @@ function init() {
                     forecastDate.innerHTML = date;
                     cardBody.append(forecastDate);
                     //var currentDate = dayjs();
-                    //$('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
+                   // $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
+                    
 
                     // create forecast temp
                     var forecastTemp = document.createElement('h5');
