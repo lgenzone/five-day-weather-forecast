@@ -98,8 +98,9 @@ function init() {
 
 
     function getWeather(latStg, lonStg) {
-        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latStg + "&lon=" + lonStg + "&appid=" + apiKey;
-
+        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latStg + "&lon=" + lonStg  + "&units=imperial&appid=" +
+         apiKey;
+        //var getWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apikey}
         //var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latStg + "&lon=" + lonStg + "&appid=" + apiKey;
 
         fetch(weatherURL)
@@ -112,13 +113,13 @@ function init() {
                     currentCity.text(data.name)
                     // displays current temperature
                     var todayTemp = $("#temp")
-                    todayTemp.text(data.list[0].main.temp)
+                    todayTemp.text(data.list[0].main.temp + "°F");
                     // displays current wind speed
                     var todayWind = $("#wind")
-                    todayWind.text(data.list[0].wind.speed)
+                    todayWind.text(data.list[0].wind.speed + " mph");
                     // displays current humidity
                     var todayHumid = $("#humid")
-                    todayHumid.text(data.list[0].main.humidity)
+                    todayHumid.text(data.list[0].main.humidity + "%");
                     //display current date
                     var currentDate = dayjs();
                     $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
@@ -153,11 +154,13 @@ function init() {
                     forecastDate.classList.add('card-title');
                     forecastDate.innerHTML = date;
                     cardBody.append(forecastDate);
+                    //var currentDate = dayjs();
+                    //$('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
 
                     // create forecast temp
                     var forecastTemp = document.createElement('h5');
                     forecastTemp.classList.add('card-title');
-                    forecastTemp.innerHTML = 'Temperature: ' + temp;
+                    forecastTemp.innerHTML = 'Temperature: ' + temp + '°F';
                     cardBody.append(forecastTemp);
                     
 
