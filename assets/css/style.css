@@ -3,3 +3,12 @@ body {
     font-family: 'Changa', sans-serif;
 }
   
+div .card {
+    background-color: rgba(25, 25, 28, 0.5) !important;
+    color: white;
+    border-radius: 8px;
+}
+
+li {
+    color: black;
+}
