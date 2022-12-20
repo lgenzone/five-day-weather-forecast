@@ -124,8 +124,8 @@ function init() {
                     var currentDate = dayjs();
                     $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
                     // display icon
-                    var icon = data.list[0].weather[0].icon;
-                    var iconUrl = `https://openweathermap.org/img/w/${icon}.png`
+                    var currentIcon = data.list[0].weather[0].icon;
+                    var iconUrl = `https://openweathermap.org/img/w/${currentIcon}.png`
                     $('#icon').attr('src', iconUrl);
 
                    
@@ -139,14 +139,12 @@ function init() {
                     var temp = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humid = data.list[i].main.humidity;
-                    
+                    var icon = data.list[i].weather[0].icon;    
 
                     // create card container
                     var card = document.createElement('div');
-                    card.classList.add('card', 'text-center', 'mx-auto', 'my-2', 'px-5');
+                    card.classList.add('card', 'text-center', 'mx-auto', 'mt-3', 'my-2', 'px-5');
                     card.style.width = '17rem';
-                    //background-color: rgba(25, 25, 28, 0.5);
-                    //border-radius: 8px;
                     forecast.append(card);
 
                     // create card body 
@@ -159,10 +157,7 @@ function init() {
                     forecastDate.classList.add('card-title');
                     forecastDate.innerHTML = date;
                     cardBody.append(forecastDate);
-                    //var currentDate = dayjs();
-                   // $('#date').text(currentDate.format('dddd' + ' MMM D, YYYY'));
                     
-
                     // create forecast temp
                     var forecastTemp = document.createElement('h5');
                     forecastTemp.classList.add('card-title');
@@ -186,35 +181,12 @@ function init() {
                     forecastHumid.innerHTML = 'Humidity: ' + humid + '%';
                     cardBody.append(forecastHumid);
 
+                    // create icon
+                    var forecastIcon = document.createElement('img');
+                    forecastIcon.classList.add('card-img-top');
+                    forecastIcon.src = `https://openweathermap.org/img/w/${icon}.png`;
+                    cardBody.append(forecastIcon);
 
-
-
-                    // append 
-                    //forecast.append(forecastDate);
-                    //forecast.append(forecastTemp);
-
-
-                    /*
-
-                    var humid = data.list[i].main.humidity;
-                    var wind = data.list[i].wind.speed;
-
-                    
-
-                    
-                    
-                    date.text(data.list[i].dt_txt);
-
-                    
-                    temp.text(data.list[i].main.temp);
-                    forecast.append(temp);
-
-                
-                    humid.text(data.list[i].main.humidity);
-                    forecast.append(humid);
-
-                    wind.text(data.list[i].wind.speed);
-                    forecast.append(wind); */
 
                 
                     }
@@ -230,30 +202,7 @@ function init() {
     var searchButton = document.getElementById('submitBtn')
     searchButton.addEventListener('click', getLocation);
 
-    
-    // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
-    /*
-    function getForecast(latStg, lonStg) {
-        var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latStg + "&long=" + lonStg + "&appid=" + apiKey;
-        fetch(forecastURL) 
-        .then(function(response){
-            if (response.ok) {
-                response.json().then(function(data){
-                    console.log(data)
-
-                    for (let i = 0; i <data.list.length; i = i + 8)
-
-                })
-            }
-        }) 
-
-        }
-
-
-    */
-    
-    
 
 
 

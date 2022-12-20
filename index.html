@@ -23,11 +23,11 @@
 
   <body>
     <!-- search / history section-->
-    <div class="container" id="search-container">
+    <div class="container col-md-auto text-center w-25" id="search-container">
         <h1 class="text-center title">Weather Dashboard</h1>
         <div class="city-search">
           <input type="search" class="input" id="cityname" placeholder="City"/>
-          <button class="button" type="submit" id="submitBtn">Search</button>
+          <button class="button mb-3" type="submit" id="submitBtn">Search</button>
         </div>
   
         <div class="card card-bottom">
@@ -48,14 +48,15 @@
 
               <div class="col temp-para" id="current-weather">
                 <!-- TO DO: convert temp to degrees-->
+                <div class="weather-icon">
+                  <img id="icon" width="100"/>
+                </div>
                 <p>Temperature: <span class="current-weather-items card-text" id="temp"></span></p>
                 <p>Wind Speed: <span class="current-weather-items card-text" id="wind"></span></p>
                 <p>Humidity: <span class="current-weather-items card-text" id="humid"></span></p>
               </div>
             </div>
-              <div class="weather-icon card">
-                <img id="icon" width="300"/>
-              </div>
+              
               <!--http://openweathermap.org/img/wn/10d@2x.png-->
           </div>
 
