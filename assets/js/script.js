@@ -1,5 +1,5 @@
 
-// Your API key is d165ca26185edc2c0c03ddfd0e1f6ef7
+// API key is d165ca26185edc2c0c03ddfd0e1f6ef7
 // api.openweathermap.org/data/2.5/weather?q=
 // https://api.openweathermap.org/geo/1.0/direct?q=${userInput}&units=imperial&appid=${apikey}
 
@@ -7,36 +7,6 @@
 
 var recentSearches = [];
 
-/*
-
-function renderHistory() {
-    //var searchInput = $('#cityname').val().trim();
-
-    if (recentSearches.indexOf(userInput) !== -1) {
-        return
-    } else {
-        var historyButton = document.createElement('button');
-        historyButton.innerHTML = userInput;
-
-        searchSection.appendChild(historyButton);
-        recentSearches.push(searchInput);
-        localStorage.setItem('city', JSON.stringify(recentSearches));
-    }
-};
-
-function init() {
-    var historyArray = JSON.parse(localStorage.getItem('city'));
-
-    if (historyArray !== null) {
-        for (i = 0; i<historyArray.length; i++) {
-            var recentButton = document.createElement('button');
-            recentButton.innerHTML = historyArray[i];
-
-            searchSection.appendChild(recentButton);
-            recentSearches.push(historyArray[i]);
-        }
-    }
-};*/
 
 
       var apiKey = "d165ca26185edc2c0c03ddfd0e1f6ef7"; 
@@ -73,11 +43,7 @@ function init() {
         console.log(searchInput);
         getCity(searchInput);
 
-            var historyButton = document.createElement('button');
-            historyButton.innerHTML = searchInput;
-            var searchSection = document.getElementById('cityname');
-            searchSection.appendChild(historyButton);
-            recentSearches.push(searchInput);
+            
             //console.log(recentSearches);
             var prevCities = JSON.parse(localStorage.getItem('city'));
             
@@ -86,19 +52,18 @@ function init() {
             // send to local storage
             localStorage.setItem('city', JSON.stringify(searchInput));
 
+            var historyButton = document.createElement('button');
+            historyButton.innerHTML = searchInput;
+            var searchSection = document.getElementById('history');
+            searchSection.appendChild(historyButton);
+            recentSearches.push(searchInput);
+
 
         };
 
 
-
-
-    
-    
-
-
-
     function getWeather(latStg, lonStg) {
-        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + latStg + "&lon=" + lonStg  + "&units=imperial&appid=" +
+        var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/?lat=" + latStg + "&lon=" + lonStg  + "&units=imperial&appid=" +
          apiKey;
         //var getWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${apikey}
         //var weatherURL = "https://api.openweathermap.org/data/2.5/forecast/daily?lat=" + latStg + "&lon=" + lonStg + "&appid=" + apiKey;
@@ -130,12 +95,13 @@ function init() {
 
                    
 
-                    for (let i=0; i<5; i++) {
+                    for (let i = 1; i<5; i++) {
 
                     var forecast = $('#weather-forecast');
 
                     // target data 
-                    var date = data.list[i].dt_txt;
+                    var weekday = dayjs([i]).format('dddd')
+                    //var date = data.list[i].dt_txt;
                     var temp = data.list[i].main.temp;
                     var wind = data.list[i].wind.speed;
                     var humid = data.list[i].main.humidity;
@@ -153,15 +119,15 @@ function init() {
                     card.append(cardBody); 
 
                     // create forecast date
-                    var forecastDate = document.createElement('h4');
+                    var forecastDate = document.createElement('h5');
                     forecastDate.classList.add('card-title');
-                    forecastDate.innerHTML = date;
+                    forecastDate.innerHTML = weekday;
                     cardBody.append(forecastDate);
-                    
+
                     // create forecast temp
-                    var forecastTemp = document.createElement('h5');
+                    var forecastTemp = document.createElement('h4');
                     forecastTemp.classList.add('card-title');
-                    forecastTemp.innerHTML = 'Temperature: ' + temp + '°F';
+                    forecastTemp.innerHTML = temp + '°F';
                     cardBody.append(forecastTemp);
                     
 
@@ -181,7 +147,7 @@ function init() {
                     forecastHumid.innerHTML = 'Humidity: ' + humid + '%';
                     cardBody.append(forecastHumid);
 
-                    // create icon
+                    // create icons
                     var forecastIcon = document.createElement('img');
                     forecastIcon.classList.add('card-img-top');
                     forecastIcon.src = `https://openweathermap.org/img/w/${icon}.png`;
@@ -201,6 +167,9 @@ function init() {
     // event listener 
     var searchButton = document.getElementById('submitBtn')
     searchButton.addEventListener('click', getLocation);
+
+   
+
 
 
 
